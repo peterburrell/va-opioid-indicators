@@ -1,0 +1,15 @@
+{
+  "name": "va-opioid-indicators",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Peter Burrell <peterburrell@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "http-server -a localhost -c-1 -o"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "0.11.1"
+  }
+}
