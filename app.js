@@ -78,7 +78,7 @@ function render(files) {
         .width(mapWidth)
         .height(mapHeight)
         .dimension(dim_fips)
-        .group(dim_fips.group().reduceSum(d => (d["Case Count Display"]|0)))
+        .group(dim_fips.group().reduceSum(d => (d["Rate"]|0)))
         // .colorAccessor(function(d){
         //     return d ? d.value : 0;
         // })
