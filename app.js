@@ -1,6 +1,7 @@
 // todo: process data when loaded
 // todo: fix data display
 // todo: fix map color scheme
+// todo: use rate instead of count
 
 // https://bl.ocks.org/mbostock/4060606
 // http://dc-js.github.io/dc.js/examples/
@@ -78,9 +79,20 @@ function render(files) {
         .height(mapHeight)
         .dimension(dim_fips)
         .group(dim_fips.group().reduceSum(d => (d["Case Count Display"]|0)))
-        .colorAccessor(colors)
-        .overlayGeoJson(topojson.feature(topo, topo.objects.counties).features, "state", d => d.id)
+        // .colorAccessor(function(d){
+        //     return d ? d.value : 0;
+        // })
+        //.colors(colors)
+        .colors(d3.schemeReds[9])
+        //.calculateColorDomain()
+        .colorDomain([0, 3500])
+        .overlayGeoJson(topojson.feature(topo, topo.objects.counties).features, "locality", d => d.id)
+        //.overlayGeoJson(topojson.feature(topo, topo.objects.states).features, "state", d => d.properties.name)
         .projection(projection);
+
+
+    d3.select("#loading-msg").remove();
+    d3.select("#content").classed("invisible", false);
 
     dc.renderAll();
 }

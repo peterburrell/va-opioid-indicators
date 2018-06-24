@@ -10,11 +10,22 @@
     div.dc-chart {
       float: none;
     }
+
+    .dc-chart g.locality:hover {
+      fill-opacity: .8;
+    }
+    
+    .dc-chart g.locality path {
+      stroke: #fff;
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div id="loading-msg" class="container visible">
+    <h3>Loading data...</h3>
+  </div>
+  <div id="content" class="container invisible">
     <h2>VA Opioid Indicators</h2>
     <div class="row">
       <div class="col">
