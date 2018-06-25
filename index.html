@@ -4,20 +4,26 @@
 <head>
   <meta charset="utf-8">
   <title>VA Opioid Indicators</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/dc@3/dc.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
   <style type="text/css">
-    div.dc-chart {
-      float: none;
-    }
-
     .dc-chart g.locality:hover {
       fill-opacity: .8;
     }
-    
-    .dc-chart g.locality path {
-      stroke: #fff;
+
+    .state {
+      fill: none;
+      stroke: #777;
+      stroke-width: 2px;
+      stroke-linejoin: round;
     }
+    
+    .counties path {
+      fill: none;
+      stroke: #ccc;
+      stroke-linejoin: round;
+    }
+
   </style>
 </head>
 
@@ -29,41 +35,35 @@
     <h2>VA Opioid Indicators</h2>
     <div class="row">
       <div class="col">
-        <div class="form-group" id="select-year">
+        <div class="form-group">
           <label>Year</label>
         </div>
       </div>
       <div class="col">
-          <div class="form-group" id="select-age-group">
-            <label>Age Group</label>
-          </div>
+        <div class="form-group">
+          <label>Age Group</label>
+        </div>
       </div>
       <div class="col">
-          <div class="form-group" id="select-county">
-            <label>County</label>
-          </div>
+        <div class="form-group">
+          <label>County</label>
+        </div>
       </div>
       <div class="col">
-          <div class="form-group" id="select-type">
-            <label>Indicator</label>
-          </div>
+        <div class="form-group">
+          <label>Indicator</label>
+        </div>
       </div>
     </div>
     <div class="row">
-        <div class="col">
-          <div id="map"></div>
-        </div>
-      </div>
-    <div class="row">
       <div class="col">
-        <table class="table" id="datatable"></table>
+        <svg width="1140" height="600"></svg>
       </div>
     </div>
 
   </div>
   <script src="https://unpkg.com/d3@5/dist/d3.js"></script>
   <script src="https://unpkg.com/crossfilter2@1.4/crossfilter.js"></script>
-  <script src="https://unpkg.com/dc@3/dc.js"></script>
   <script src="https://rawgit.com/crossfilter/reductio/master/reductio.js"></script>
   <script src="https://npmcdn.com/universe@latest/universe.js"></script>
   <script src="https://unpkg.com/topojson@3"></script>
